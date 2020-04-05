@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atguigu</groupId>
+    <artifactId>gmall</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <description>谷粒商城</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>gmall-core</module>
+        <module>gmall-admin</module>
+    </modules>
+
+    <!--添加Nexus发布的仓库-->
+    <distributionManagement>
+        <!--发布正式版本项目的仓库-->
+        <repository>
+            <id>releases</id>
+            <name>Releases</name>
+            <url>http://192.168.43.72:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <!--发布开发版本项目的仓库-->
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://192.168.43.72:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
