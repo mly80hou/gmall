@@ -1,5 +1,13 @@
+**/target/
+.settings/
+.classpath
+.mymetadata
+.project
+.gitconfig
 .idea/
-target/
+*.iml
+**/classes/
+Thumbs.db
 
 # Compiled class file
 *.class
