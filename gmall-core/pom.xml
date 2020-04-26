@@ -12,26 +12,30 @@
     别人依赖核心包一定要将他放在最前面，可能与项目的其他jar版本冲突，按照先声明者优先就会用到我们核心包里面的jar，比如swagger引的guava-->
     <!--集中定义版本号-->
     <properties>
-        <mybatisplus.version>3.0.7.1</mybatisplus.version>
         <nacos.version>0.2.2.RELEASE</nacos.version>
-        <mybatisplus.version>3.0.7.1</mybatisplus.version>
+        <mybatisplus.version>3.3.1.tmp</mybatisplus.version>
         <mysql.version>5.1.46</mysql.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.7.0</swagger.version>
         <lombok.version>1.18.8</lombok.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--*********nacos依赖*********-->
+        <dependency><!--nacos注册中心-->
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${nacos.version}</version>
         </dependency>
-        <dependency>
+        <dependency><!--nacos配置中心-->
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
             <version>${nacos.version}</version>
         </dependency>
+        <!--*********结束标签*********-->
 
+        <!--************mybatis-plus依赖************-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -48,31 +52,54 @@
             <artifactId>mybatis-plus</artifactId>
             <version>${mybatisplus.version}</version>
         </dependency>
+        <!--************结束标签************-->
+
+        <!--*********mysql数据库依赖*********-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+        <!--*********结束标签*********-->
+
+        <!--**********swagger依赖**********-->
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
+            <exclusions><!--排除-->
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+                <!--<exclusion>
+                    <groupId>com.fasterxml</groupId>
+                    <artifactId>classmate</artifactId>
+                </exclusion>-->
+            </exclusions>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!--**********结束标签**********-->
 
+        <!--**********小辣椒依赖**********-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-
+        <!--**********结束标签**********-->
     </dependencies>
 
 </project>

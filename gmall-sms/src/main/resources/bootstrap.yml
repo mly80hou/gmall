@@ -1,0 +1,13 @@
+#服务名称
+spring:
+  application:
+    name: sms-service
+  #nacos的配置地址
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 6371ff5f-3697-4f24-94f1-aff713eedaee
+        group: dev
+        #指定文件后缀
+        file-extension: yml

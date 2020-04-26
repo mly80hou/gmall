@@ -1,0 +1,25 @@
+#配置端口号
+server:
+  port: 8081
+#nacos的注册中心
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  #数据配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/guli_pms?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: mly19891020@
+  #缓存redis地址
+  redis:
+    host: 192.168.43.73
+#id组件策略
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto  #默认使用数据库自增
+  #映射文件路径
+  mapper-locations: classpath:mapper/pms/**/*.xml

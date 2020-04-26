@@ -8,6 +8,8 @@
 *.iml
 **/classes/
 Thumbs.db
+mvnw*
+.mvn/
 
 # Compiled class file
 *.class
